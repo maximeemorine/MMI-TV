@@ -1,0 +1,8 @@
+mmitv_front_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: MmitvFrontBundle:Default:index }
+
+
+mmitv_front_index:
+    path:     /index
+    defaults: { _controller: MmitvFrontBundle:Front:index }

@@ -1,0 +1,7 @@
+mmitv_back_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: MmitvBackBundle:Default:index }
+
+mmitv_back_index:
+    path:     /back/index
+    defaults: { _controller: MmitvBackBundle:Back:index }
