@@ -1,35 +1,7 @@
-<!DOCTYPE html>
-<html lang="fr">
+{% extends 'MmitvBackBundle::base.html.twig' %}
 
-	<head>
+{% block main %}
 
-		<!--[if lt IE 9]>
-	    	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-
-		<meta charset="UTF-8">
-		<title></title>
-		<meta name="viewport" content="width=device-width" />
-
-	    <!-- Feuilles de style -->
-		<link rel="stylesheet" type="text/css" href="{{ asset('bundles/mmitvback/style/style.css')}}">
-
-		<!-- Google Font -->
-
-
-	</head>
-
-	<body>
-
-		<h1>Page accueil du back</h1>
-
-
-
-		<script type="text/javascript" src="{{ asset('bundles/mmitvback/js/jquery.min.js')}}"></script>
-
-	</body>
-
-</html>
-
-
-
+	<h1>Page d'accueil du back</h1>
+	<p>Bienvenue</p>
+{% endblock %}
