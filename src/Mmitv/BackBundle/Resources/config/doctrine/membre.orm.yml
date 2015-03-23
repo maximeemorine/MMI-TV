@@ -1,0 +1,28 @@
+Mmitv\BackBundle\Entity\membre:
+    type: entity
+    table: null
+    repositoryClass: Mmitv\BackBundle\Entity\membreRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nomMembre:
+            type: string
+            length: '30'
+            column: nom_membre
+        prenomMembre:
+            type: string
+            length: '30'
+            column: prenom_membre
+        emailMembre:
+            type: string
+            length: '45'
+            column: email_membre
+        statutMembre:
+            type: string
+            length: '15'
+            column: statut_membre
+    lifecycleCallbacks: {  }

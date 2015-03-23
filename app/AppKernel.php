@@ -19,6 +19,8 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new Mmitv\FrontBundle\MmitvFrontBundle(),
             new Mmitv\BackBundle\MmitvBackBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
+            new Mmitv\BackBundle\UserBundle\MmitvBackBundleUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
