@@ -4,4 +4,24 @@ mmitv_back_homepage:
 
 mmitv_back_index:
     path:     /back/index
-    defaults: { _controller: MmitvBackBundle:Back:index }
+    defaults: { _controller: MmitvBackBundle:Index:index }
+
+mmitv_back_video_index:
+    path:     /back/video/index
+    defaults: { _controller: MmitvBackBundle:Video:index }
+
+mmitv_back_planning_index:
+    path:     /back/planning/index
+    defaults: { _controller: MmitvBackBundle:Planning:index }
+
+mmitv_back_twitter_index:
+    path:     /back/twitter/index
+    defaults: { _controller: MmitvBackBundle:Twitter:index }
+
+mmitv_back_utilisateurs_index:
+    path:     /back/utilisateurs/index
+    defaults: { _controller: MmitvBackBundle:Utilisateurs:index }
+
+mmitv_back_utilisateurs_add:
+    path:     /back/utilisateurs/add
+    defaults: { _controller: MmitvBackBundle:Utilisateurs:add }

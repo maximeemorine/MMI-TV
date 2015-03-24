@@ -2,8 +2,8 @@
 
 
 
-$primary-color: #4fd6c7; //Couleur principale: le vert
-$secondary-color: #f0f0f0; // Couleur secondaire: le gris clair
+$primary-color: #2e8fb0; //Couleur principale: le vert
+$secondary-color: #f5f5f5; // Couleur secondaire: le gris clair
 $font-color: #323232; // COuleur de police: gris foncé
 $secondary-font-color: #a5a4a4; //Couleur de police plus claire : gris mi-clair
 
@@ -59,6 +59,9 @@ a{
     }
 }
 
+p a{
+    text-decoration: underline;
+}
 header a, nav a{
     color: white;
 }
@@ -84,9 +87,9 @@ h1{
 
 h2{
 
-    font: $font-subtitle;
-    color: inherit;
+    color: $primary-color;
     text-transform: uppercase;
+    font-weight: bold;
 }
 
 article h2:first-child{
@@ -94,8 +97,8 @@ article h2:first-child{
 }
 
 h3{
-    font: $font-subtitle;
-    color: inherit;
+    color: gray;
+    font-style: italic;
     font-size: 14px;
 }
 
@@ -163,6 +166,90 @@ table{
     }
 }
 
+
+form{
+    margin: 80px 0;
+
+}
+
+
+
+
+.bouton{
+
+    a{
+        color: $primary-color;
+        text-transform: uppercase;
+        padding: 6px 12px;
+        border: 2px solid $primary-color;
+        display: block;
+        text-align: center;
+        margin-bottom: 20px;
+
+        @include transition_all(0.2s);
+
+        &:hover{
+            background-color: $primary-color;
+            color: white;
+        }
+    }
+}
+
+.bouton_rouge{
+
+    a{
+        color: #b72b00;
+        text-transform: uppercase;
+        padding: 6px 12px;
+        border: 2px solid #b72b00;
+        display: block;
+        text-align: center;
+        margin-bottom: 50px;
+
+        @include transition_all(0.2s);
+
+        &:hover{
+            background-color: #b72b00;
+            color: white;
+        }
+    }
+}
+
+.bloc_back{
+
+    background-color: $secondary-color;
+    padding: 20px;
+}
+
+.in_bloc_back{
+
+    background-color: $secondary-color;
+    padding: 15px;
+    display: inline-block;
+    width: 30%;
+    margin-right: 3%;
+    margin-bottom: 20px;
+}
+
+
+.mini_bloc_back{
+
+    background-color: $secondary-color;
+    padding: 5px;
+    display: inline-block;
+    width: 10%;
+    margin-right: 2%;
+    margin-bottom: 20px;
+    text-align: center;
+
+    &:hover{
+        cursor: move;
+    }
+}
+
+.tableau_fill{
+    background-color: #e0f7ff;
+}
 
 
 /*
@@ -255,7 +342,7 @@ header{
 /*fin moddif*/
 .nav .menu a:hover, .nav .submenu a:hover{
     background:rgba(42,44,52,0.1);
-    border-right:3px solid $primary-color +50;
+    border-right:3px solid $primary-color +100;
 }
 .submenu .right{float:right;padding-right:15px;}
 .sub-content{
@@ -349,8 +436,19 @@ header{
     #search-close.responsive{
         display:initial;
     }
+
+    .in_bloc_back{
+
+        width: 100%;
+
+    }
 }
 @media only screen and (max-width: 768px) {
+    .in_bloc_back{
+
+        width: 100%;
+
+    }
     .nav{
         top:110px;
         right:0;
