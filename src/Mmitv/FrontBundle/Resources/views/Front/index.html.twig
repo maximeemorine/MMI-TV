@@ -15,17 +15,69 @@
 		<link rel="stylesheet" type="text/css" href="{{ asset('bundles/mmitvfront/style/style.css')}}">
 
 		<!-- Google Font -->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900' rel='stylesheet' type='text/css'>
 
 
 	</head>
 
 	<body>
 
-		<h1>Page accueil du front</h1>
+
+		<nav id="nav">
+
+			<div id="heure">
+				<p>22:37</p>
+			</div>
+
+			<div id="edt">
+
+				<h1>Prochains cours</h1>
+
+				<h2>MMI2</h2>
+
+				<ul>
+					<li>Groupe A : M42A5 - H101</li>
+					<li>Groupe B : M42A2 - H105</li>
+					<li>Groupe C : M42C5 - H006</li>
+					<li>Groupe D : M42C5 - H007</li>
+					<li>Groupe E : M42C4 - H008</li>
+					<li>Groupe F : M42C2 - H001</li>
+					<li>Groupe G : M42B3 - E110</li>
+				</ul>
+
+			</div>
+
+		</nav>
+
+		<div id="main-container">
+
+			<img src="{{ asset('bundles/mmitvfront/images/bg.jpg')}}" alt="">
+
+			<div id="logo">
+				<img src="{{ asset('bundles/mmitvfront/images/logo.svg')}}" alt="">
+			</div>
+
+			<div id="navicon">
+				<a id='nav-trigger' href="#">Cliquer ici pour l'emploi du temps	(demo)</a>
+			</div>
+
+			<div id="bandeau_tweets">
+				<div class="container">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere expedita illum maiores perferendis.</p>
+				</div>
+			</div>
+
+			<div id="synthe">
+				<div id="left"><p>Vous regardez</p></div><!--
+			 --><div id="right"><p>Interstellar - Christopher Nolan</p></div>
+			</div>
 
 
+
+		</div>
 
 		<script type="text/javascript" src="{{ asset('bundles/mmitvfront/js/jquery.min.js')}}"></script>
+		<script type="text/javascript" src="{{ asset('bundles/mmitvfront/js/main.js')}}"></script>
 
 	</body>
 

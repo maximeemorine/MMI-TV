@@ -1,0 +1,96 @@
+
+html, body {
+	height: 100vh;
+}
+
+body {
+	position: relative;
+	overflow: hidden;
+	font-size: 16px;
+	font-family: Roboto;
+	font-weight: 400;
+}
+
+.container{
+	width: 90%;
+	margin: 0 auto;
+}
+
+
+#main-container{
+
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	z-index: 1;
+
+	img{
+		width: 100%;
+	}
+
+	&>div{
+		z-index:2;
+		position: absolute;
+	}
+
+	#logo{
+
+		top: 0;
+		left: 0;
+		width: 15%;
+
+		img{
+			width: 100%;
+		}
+	}
+
+	#navicon{
+		top: 40%;
+		left: 40%;
+	}
+
+	#bandeau_tweets{
+		width: 100vw;
+		bottom: 0;
+		background-color: rgba(60, 190, 107, 0.6);
+
+		p{
+			color: white;
+			padding: 15px 0;
+			font-size: 18px;
+		}
+	}
+
+	#synthe{
+
+		bottom: 70px;
+		left: 45px;
+		div{
+			display: inline-block;
+
+			p{
+				font-size: 26px;
+				padding: 20px;
+				text-transform: uppercase;
+				letter-spacing: -2px;
+			}
+		}
+
+		#left{
+
+		background-color: rgba(113, 213, 84, 0.8);
+
+			p{
+				color: white;
+			}
+		}
+
+		#right{
+			background-color: white;
+		}
+	}
+
+}
+
+
