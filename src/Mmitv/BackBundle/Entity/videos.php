@@ -3,51 +3,70 @@
 namespace Mmitv\BackBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
 /**
  * videos
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Mmitv\BackBundle\Entity\videosRepository")
  */
 class videos
 {
     /**
      * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="lien_videos", type="string", length=100)
      */
     private $lienVideos;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="nom_videos", type="string", length=40)
      */
     private $nomVideos;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="plateforme_videos", type="string", length=25)
      */
     private $plateformeVideos;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="duree_videos", type="time")
      */
     private $dureeVideos;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="debut_videos", type="time")
      */
     private $debutVideos;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="fin_videos", type="time")
      */
     private $finVideos;
 
     /**
-     *@ORM\ManyToMany(targetEntity="Mmitv\BackBundle\Entity\membre")
+     *
+     * @ORM\ManyToOne(targetEntity="Mmitv\BackBundle\Entity\membre" )
      */
-    private $playlistId;
+    private $playlist_id;
 
 
     /**
@@ -197,6 +216,51 @@ class videos
     {
         return $this->finVideos;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->playlist_id = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add playlist_id
+     *
+     * @param \Mmitv\BackBundle\Entity\membre $playlistId
+     * @return videos
+     */
+    public function addPlaylistId(\Mmitv\BackBundle\Entity\membre $playlistId)
+    {
+        $this->playlist_id[] = $playlistId;
+
+        return $this;
+    }
+
+    /**
+     * Remove playlist_id
+     *
+     * @param \Mmitv\BackBundle\Entity\membre $playlistId
+     */
+    public function removePlaylistId(\Mmitv\BackBundle\Entity\membre $playlistId)
+    {
+        $this->playlist_id->removeElement($playlistId);
+    }
+
+    /**
+     * Get playlist_id
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPlaylistId()
+    {
+        return $this->playlist_id;
+    }
+    /**
+     * @var integer
+     */
+    private $playlistId;
+
 
     /**
      * Set playlistId
@@ -209,15 +273,5 @@ class videos
         $this->playlistId = $playlistId;
 
         return $this;
-    }
-
-    /**
-     * Get playlistId
-     *
-     * @return integer 
-     */
-    public function getPlaylistId()
-    {
-        return $this->playlistId;
     }
 }
