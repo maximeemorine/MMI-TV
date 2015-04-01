@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <meta charset="UTF-8">
+        <meta name='viewport' content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+        <title>Administration</title>
+
+        <!-- Feuille de style -->
+        <link rel="stylesheet" href="{{ asset('bundles/mmitvback/style/style.css')}}">
+
+        <!-- Google Font -->
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900' rel='stylesheet' type='text/css'>
+
+    </head>
+
+    <body>
+
+        <header>
+            <div class="logo">
+                <p>MMI TV</p>
+            </div>
+            <div class="header-content" id="header-content">
+                <div class="breadcrumb" id="breadcrumb">
+                    <div class="br-content">
+                        <span class="home">
+                            <a href="#">ADMINISTRATION</a>
+                        </span>
+                        <span class="path-divider">-</span>
+                        <span class="link">
+                            <a href="#">Retour sur le site</a>
+                        </span>
+
+                         <!-- <i class="icon-enter"></i> Déconnexion -->
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        </header>
+
+
+
+    <div class="content">
+
+
+{% block main %}
+{% block fos_user_content %}
+{% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+
+<form action="{{ path("fos_user_security_check") }}" method="post">
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+    <label for="username">{{ 'security.login.username'|trans }}</label>
+    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+
+    <label for="password">{{ 'security.login.password'|trans }}</label>
+    <input type="password" id="password" name="_password" required="required" />
+
+    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+
+    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+</form>
+{% endblock fos_user_content %}
+{% endblock %}
+
+
+
+
+        </div>
+
+
+    </body>
+
+    <script type="text/javascript" src="{{ asset('bundles/mmitvback/js/jquery.min.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/mmitvback/js/app.js')}}"></script>
+
+
+
+</html>
