@@ -18,6 +18,10 @@ mmitv_back_twitter_index:
     path:     /back/twitter/index
     defaults: { _controller: MmitvBackBundle:Twitter:index }
 
+mmitv_back_twitter_add:
+    path:     /back/twitter/add
+    defaults: { _controller: MmitvBackBundle:Twitter:add }
+
 mmitv_back_utilisateurs_index:
     path:     /back/utilisateurs/index
     defaults: { _controller: MmitvBackBundle:Utilisateurs:index }

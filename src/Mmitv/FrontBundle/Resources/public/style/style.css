@@ -76,6 +76,13 @@ body {
   z-index: 1; }
   #main-container img {
     width: 100%; }
+  #main-container #player {
+    width: 100vw;
+    height: 100vh;
+    z-index: 1; }
+    #main-container #player iframe {
+      width: 100vw;
+      height: 100vh; }
   #main-container > div {
     z-index: 2;
     position: absolute; }

@@ -4,5 +4,5 @@ mmitv_front_homepage:
 
 
 mmitv_front_index:
-    path:     /index
+    path:     /
     defaults: { _controller: MmitvFrontBundle:Front:index }

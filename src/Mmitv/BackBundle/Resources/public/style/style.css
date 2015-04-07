@@ -515,16 +515,24 @@ input {
   margin: 10px 0 30px 0; }
 
 input[type=submit] {
-  background-color: #2e8fb0;
-  color: white;
+  background-color: white;
+  color: #2e8fb0;
   width: 100%;
   text-transform: uppercase;
-  font: 700 14px Roboto;
-  font-size: 16px;
-  padding: 10px;
-  margin-top: 30px; }
+  padding: 6px 12px;
+  border: 2px solid #2e8fb0;
+  display: block;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  transition: all 0.2s; }
   input[type=submit]:hover {
-    background-color: #3899ba; }
+    background-color: #2e8fb0;
+    color: white; }
 
 textarea {
   min-width: 100%;

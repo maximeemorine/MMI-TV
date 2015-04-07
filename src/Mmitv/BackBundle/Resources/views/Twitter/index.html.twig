@@ -10,11 +10,10 @@
 				Renseignez ici les comptes Twitter ainsi que les tweets que vous souhaitez diffuser dans le bandeau inférieur de l'interface TV.
 			</p>
 
-			<form action="">
+			<form action="{{ path('mmitv_back_twitter_add') }}">
 				<label for="lien">Lien du tweet</label><input id="lien" type="text">
-				<div type="submit" class="bouton"><a href="#">Ajouter ce tweet</a></div>
+				<input type="submit" value="Ajouter ce tweet">
 			</form>
-
 
 
 
