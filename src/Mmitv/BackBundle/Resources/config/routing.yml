@@ -18,9 +18,13 @@ mmitv_back_twitter_index:
     path:     /back/twitter/index
     defaults: { _controller: MmitvBackBundle:Twitter:index }
 
-mmitv_back_twitter_add:
-    path:     /back/twitter/add
-    defaults: { _controller: MmitvBackBundle:Twitter:add }
+mmitv_back_twitter_edit:
+    path:     /back/twitter/edit/{id}
+    defaults: { _controller: MmitvBackBundle:Twitter:edit }
+
+mmitv_back_twitter_delete:
+    path:     /back/twitter/delete/{id}
+    defaults: { _controller: MmitvBackBundle:Twitter:delete }
 
 mmitv_back_utilisateurs_index:
     path:     /back/utilisateurs/index
