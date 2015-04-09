@@ -13,31 +13,18 @@
 			<div class="bouton"><a href="{{ path('mmitv_back_utilisateurs_add') }}">Ajouter un utilisateur</a></div>
 
 
-
+    {%  for user in user %}
 
 			<div class="in_bloc_back">
-				<h2>John doe</h2>
+				<h2>{{ user.username }}</h2>
 				<h3>Rôle (admin/redacteur)</h3>
-				<p>adresse@email.fr</p>
+				<p>{{ user.email }}</p>
 				<div class="bouton"><a href="">Modifier</a></div>
 				<div class="bouton_rouge"><a href="">Supprimer</a></div>
 			</div>
-
-			<div class="in_bloc_back">
-				<h2>John doe</h2>
-				<h3>Rôle (admin/redacteur)</h3>
-				<p>adresse@email.fr</p>
-				<div class="bouton"><a href="">Modifier</a></div>
-				<div class="bouton_rouge"><a href="">Supprimer</a></div>
-			</div>
-
-			<div class="in_bloc_back">
-				<h2>John doe</h2>
-				<h3>Rôle (admin/redacteur)</h3>
-				<p>adresse@email.fr</p>
-				<div class="bouton"><a href="">Modifier</a></div>
-				<div class="bouton_rouge"><a href="">Supprimer</a></div>
-			</div>
+			{% else %}
+			<p>Aucune utilisateurs n'a été trouvée.</p>
+   {% endfor %}
 
 
 {% endblock %}

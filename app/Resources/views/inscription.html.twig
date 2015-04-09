@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <meta charset="UTF-8">
+        <meta name='viewport' content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+        <title>Administration</title>
+
+        <!-- Feuille de style -->
+        <link rel="stylesheet" href="{{ asset('bundles/mmitvback/style/style.css')}}">
+
+        <!-- Google Font -->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900' rel='stylesheet' type='text/css'>
+
+    </head>
+
+    <body>
+
+        <header>
+            <div class="logo">
+                <p>MMI TV</p>
+            </div>
+            <div class="header-content" id="header-content">
+                <div class="breadcrumb" id="breadcrumb">
+                    <div class="br-content">
+                        <span class="home">
+                            <a href="#">ADMINISTRATION</a>
+                        </span>
+                        <span class="path-divider">-</span>
+                        <span class="link">
+                            <a href="#">Retour sur le site</a>
+                        </span>
+
+                         <!-- <i class="icon-enter"></i> Déconnexion -->
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        </header>
+
+        <div class="nav-button-responsive" id="nav-button-responsive">
+            <i class="icon-menu"></i>
+        </div>
+        <div class="nav" id="nav">
+            <div class="menu">
+                <a href="{{ path('mmitv_back_index') }}">
+                    <i class="icon-home3"></i> <span>Dashboard</span>
+                </a>
+            </div>
+
+            <div class="submenu" id="submenu">
+                <a href="{{ path('mmitv_back_video_index') }}"><i class="icon-film"></i> <span>Vidéos</span></a>
+            </div>
+
+            <div class="menu">
+                <a href="{{ path('mmitv_back_planning_index') }}">
+                    <i class="icon-calendar"></i> <span>Planning</span>
+                </a>
+            </div>
+
+            <div class="submenu" id="submenu">
+                <a href="{{ path('mmitv_back_twitter_index') }}"><i class="icon-"></i> <span>Twitter</span></a>
+            </div>
+
+            <div class="submenu" id="submenu">
+                <a href="#"><i class="icon-users"></i> <span>Utilisateurs</span></a>
+                <div class="sub-content hide" id="sub-content">
+                    <a href="{{ path('mmitv_back_utilisateurs_index') }}"> Liste</a>
+                    <a href="{{ path('mmitv_back_utilisateurs_add') }}"> Ajouter</a>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    <div class="content">
+
+
+{% block main %}
+<h1>Créer un nouvel utilisateur</h1>
+      <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+    {{ form_widget(form) }}
+    <div>
+        <input type="submit" value="{{ 'registration.submit'|trans }}" />
+    </div>
+</form>
+{% endblock %}
+
+
+
+
+		</div>
+
+
+    </body>
+
+	<script type="text/javascript" src="{{ asset('bundles/mmitvback/js/jquery.min.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/mmitvback/js/app.js')}}"></script>
+
+
+
+</html>
