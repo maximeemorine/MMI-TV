@@ -97,14 +97,20 @@ body {
     left: 40%; }
   #main-container #bandeau_tweets {
     width: 100vw;
+    padding: 15px 0;
     bottom: 0;
     background-color: rgba(60, 190, 107, 0.6); }
-    #main-container #bandeau_tweets p {
-      color: white;
-      padding: 15px 0;
-      font-size: 18px; }
+    #main-container #bandeau_tweets .slider_tweets {
+      position: relative;
+      overflow: auto; }
+      #main-container #bandeau_tweets .slider_tweets li {
+        list-style: none;
+        float: left; }
+        #main-container #bandeau_tweets .slider_tweets li p {
+          color: white;
+          font-size: 18px; }
   #main-container #synthe {
-    bottom: 70px;
+    bottom: 150px;
     left: 45px; }
     #main-container #synthe div {
       display: inline-block; }
@@ -118,7 +124,8 @@ body {
       #main-container #synthe #left p {
         color: white; }
     #main-container #synthe #right {
-      background-color: white; }
+      background-color: white;
+      font-weight: 300; }
 
 /* Slide out navigation */
 #nav {

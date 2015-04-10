@@ -63,19 +63,28 @@ body {
 
 	#bandeau_tweets{
 		width: 100vw;
+		padding: 15px 0;
 		bottom: 0;
 		background-color: rgba(60, 190, 107, 0.6);
 
-		p{
-			color: white;
-			padding: 15px 0;
-			font-size: 18px;
+		.slider_tweets {
+			position: relative; overflow: auto;
+
+			li {
+				list-style: none;
+				float: left;
+
+				p{
+					color: white;
+					font-size: 18px;
+				}
+			}
 		}
 	}
 
 	#synthe{
 
-		bottom: 70px;
+		bottom: 150px;
 		left: 45px;
 		div{
 			display: inline-block;
@@ -99,6 +108,7 @@ body {
 
 		#right{
 			background-color: white;
+			font-weight: 300;
 		}
 	}
 

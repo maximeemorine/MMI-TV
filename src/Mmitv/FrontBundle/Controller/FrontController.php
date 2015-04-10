@@ -8,6 +8,10 @@ class FrontController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('MmitvFrontBundle:Front:index.html.twig');
+
+    	$em = $this->getDoctrine()->getManager();
+        $tweets = $em->getRepository('MmitvBackBundle:tweet')->findAll();
+
+        return $this->render('MmitvFrontBundle:Front:index.html.twig', array('tweets' => $tweets));
     }
 }

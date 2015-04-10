@@ -52,10 +52,11 @@
 		<div id="main-container">
 
 			<!-- Vidéo de la page ici -->
-			<!-- <img src="{{ asset('bundles/mmitvfront/images/bg.jpg')}}" alt=""> -->
-			<div id="player">
+			<img src="{{ asset('bundles/mmitvfront/images/bg.jpg')}}" alt="">
+
+			<!-- <div id="player">
 				<iframe src="https://www.youtube.com/embed/0vxOhd4qlnA" frameborder="0" allowfullscreen></iframe>
-			</div>
+			</div> -->
 
 			<!--  -->
 
@@ -68,9 +69,20 @@
 			</div>
 
 			<div id="bandeau_tweets">
-				<div class="container">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere expedita illum maiores perferendis.</p>
+
+
+				<div class="slider_tweets container">
+				    <ul>
+					    {% for tweet in tweets %}
+							<li>
+								<p>{{ tweet.compteTweet }}</p>
+							</li>
+						{% endfor %}
+				    </ul>
 				</div>
+
+
+
 			</div>
 
 			<div id="synthe">
@@ -84,6 +96,36 @@
 
 		<script type="text/javascript" src="{{ asset('bundles/mmitvfront/js/jquery.min.js')}}"></script>
 		<script type="text/javascript" src="{{ asset('bundles/mmitvfront/js/main.js')}}"></script>
+		<script type="text/javascript" src="{{ asset('bundles/mmitvfront/js/unslider.js')}}"></script>
+		<script>
+			$('.slider_tweets').unslider({
+				speed: 0, //temps de transition du slider (O = aucun effet de sliding)
+				delay: 8000, //changer ici le temps de changement entre chaque tweets
+				complete: function() {},
+				keys: true,
+				dots: false,
+				fluid: false
+			});
+		</script>
+
+		<script>
+			// var tweetURL = encodeURIComponent("https://twitter.com/Devergranne/status/586112559394197504");
+			// var twitterAPI = "https://api.twitter.com/1.1/statuses/oembed.json?url="+tweetURL+"?hide_media=true?hide_thread=true?";
+
+			// var twitterID = "test.js";
+
+			// $.getJSON("{{ asset('bundles/mmitvfront/js/test.js')}}")
+			//   .done(function( json ) {
+			//   	$('.slider ul li').html(json.html);
+			//     console.log( "JSON Data: " + json.url);
+			//   })
+			//   .fail(function( jqxhr, textStatus, error ) {
+			//     var err = textStatus + ", " + error;
+			//     console.log( "Request Failed: " + err );
+			// });
+		</script>
+
+
 
 	</body>
 
