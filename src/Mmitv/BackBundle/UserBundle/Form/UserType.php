@@ -18,6 +18,10 @@ class UserType extends AbstractType
             ->add('nom')
             ->add('prenom')
             ->add('username')
+            ->add('Credentialsexpireat','date', array(
+    'input'  => 'datetime',
+    'widget' => 'choice',
+))
             ->add('email')
                         ->add('roles', 'choice', array(
                         'choices' => array('ROLE_REDACTEUR' => 'Redacteur', 'ROLE_SUPER_ADMIN' => 'Administrateur'),
