@@ -17,9 +17,9 @@ class videosType extends AbstractType
         $builder
             ->add('lienVideos')
             ->add('nomVideos')
-            ->add('debutVideos')
-            ->add('finVideos')
-            ->add('dureeVideos')
+            ->add('debutVideos', 'time', array('widget' => 'choice', 'with_seconds' => true))
+            ->add('finVideos', 'time', array('widget' => 'choice', 'with_seconds' => true))
+            ->add('dureeVideos', 'time', array('widget' => 'choice', 'with_seconds' => true))
             ->add('Ajouter cette vidéo', 'submit')
         ;
     }
