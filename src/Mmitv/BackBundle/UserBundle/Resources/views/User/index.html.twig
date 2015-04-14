@@ -1,0 +1,25 @@
+{% extends 'MmitvBackBundle::base.html.twig' %}
+
+{% block main %}
+
+
+       <h1>Gestion des utilisateurs</h1>
+
+            <p>
+                Créez ici de nouveaux utilisateurs et gérez les utilisateurs existants. Un utilisateur pourra utiliser cette interface d'administration et gérer les contenus.
+            </p>
+
+            <div class="bouton"><a href="{{ path('mmitv_back_utilisateurs_add') }}">Ajouter un utilisateur</a></div>
+
+
+        {% for entity in entities %}
+            <div class="in_bloc_back">
+                <h2>{{ entity.username }}</h2>
+                <h3>Rôle (admin/redacteur)</h3>
+                <p>{{ entity.email }}</p>
+                     <div class="bouton"><a href="{{ path('user_edit', { 'id': entity.id }) }}">Modifier</a></div>
+            </div>       
+        {% endfor %}
+      
+
+    {% endblock %}

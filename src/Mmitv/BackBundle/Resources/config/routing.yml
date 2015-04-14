@@ -33,3 +33,7 @@ mmitv_back_utilisateurs_index:
 mmitv_back_utilisateurs_add:
     path:     /back/utilisateurs/add
     defaults: { _controller: FOSUserBundle:Registration:register }
+
+mmitv_back_utilisateurs_edit:
+    path:     /back/utilisateurs/edit
+    defaults: { _controller: FOSUserBundle:Profile:edit }

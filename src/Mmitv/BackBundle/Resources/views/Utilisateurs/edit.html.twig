@@ -1,0 +1,25 @@
+{% extends 'MmitvBackBundle::base.html.twig' %}
+
+{% block main %}
+
+
+				<h1>Modifier un utilisateur</h1>
+
+				<form action="{{ path('mmitv_back_utilisateurs_index') }}">
+
+					<label for="nom">Nom</label><input type="text" id="nom">
+					<label for="prenom">Prenom</label><input type="text" id="prenom">
+					<label for="email">E-mail</label><input type="text" id="email">
+
+					<label>Rôle</label><br/>
+					<input type="radio" value="admin" id="admin" />Administrateur
+					<input type="radio" value="redac" id="redac" />Redacteur
+
+					<div type="submit" class="bouton"><a href="{{ path('mmitv_back_utilisateurs_index') }}">Créer l'utilisateur</a></div>
+
+				</form>
+
+
+{% endblock %}
+
+

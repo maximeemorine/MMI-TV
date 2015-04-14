@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="{{ asset('bundles/mmitvback/style/style.css')}}">
 
         <!-- Google Font -->
-		<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900' rel='stylesheet' type='text/css'>
 
     </head>
 
@@ -40,7 +40,7 @@
                     </div>
                 </div>
 
-                <div class="user">                    
+                   <div class="user">                    
                       <a href="{{ path('fos_user_profile_show') }}">Profil</a>
                       <a href="{{ path('fos_user_change_password') }}">Mot de passe</a>
                       <a href="#">Aide</a>
@@ -75,7 +75,6 @@
             <div class="submenu" id="submenu">
                 <a href="{{ path('mmitv_back_twitter_index') }}"><i class="icon-"></i> <span>Twitter</span></a>
             </div>
-{% if is_granted('ROLE_SUPER_ADMIN') %}
 
             <div class="submenu" id="submenu">
                 <a href="#"><i class="icon-users"></i> <span>Utilisateurs</span></a>
@@ -84,7 +83,7 @@
                     <a href="{{ path('mmitv_back_utilisateurs_add') }}"> Ajouter</a>
                 </div>
             </div>
-{% endif %}
+
 
         </div>
 
@@ -93,18 +92,24 @@
 
 
 {% block main %}
-
+{% block fos_user_content %}
+    <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
+    {% if app.session is not empty %}
+        {% set targetUrl = app.session.get('_security.' ~ app.security.token.providerKey ~ '.target_path') %}
+        {% if targetUrl is not empty %}<p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>{% endif %}
+    {% endif %}
+{% endblock fos_user_content %}
 {% endblock %}
 
 
 
 
-		</div>
+        </div>
 
 
     </body>
 
-	<script type="text/javascript" src="{{ asset('bundles/mmitvback/js/jquery.min.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/mmitvback/js/jquery.min.js')}}"></script>
     <script type="text/javascript" src="{{ asset('bundles/mmitvback/js/app.js')}}"></script>
 
 

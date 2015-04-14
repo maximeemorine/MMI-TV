@@ -1,0 +1,30 @@
+user:
+    path:     /
+    defaults: { _controller: "MmitvBackBundleUserBundle:User:index" }
+
+user_show:
+    path:     /{id}/show
+    defaults: { _controller: "MmitvBackBundleUserBundle:User:show" }
+
+user_new:
+    path:     /new
+    defaults: { _controller: "MmitvBackBundleUserBundle:User:new" }
+
+user_create:
+    path:     /create
+    defaults: { _controller: "MmitvBackBundleUserBundle:User:create" }
+    methods:  POST
+
+user_edit:
+    path:     /{id}/modifier
+    defaults: { _controller: "MmitvBackBundleUserBundle:User:edit" }
+
+user_update:
+    path:     /{id}/update
+    defaults: { _controller: "MmitvBackBundleUserBundle:User:update" }
+    methods:  [POST, PUT]
+
+user_delete:
+    path:     /{id}/supprimer
+    defaults: { _controller: "MmitvBackBundleUserBundle:User:delete" }
+    methods:  [POST, DELETE]

@@ -1,0 +1,22 @@
+{% extends 'MmitvBackBundle::base.html.twig' %}
+
+{% block main %}
+
+{% block body -%}
+    <h1>Modification de l'utilisateur</h1>
+
+    {{ form(edit_form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('user') }}">
+            Retourner à la liste
+        </a>
+    </li>
+    <div class="bouton_rouge">{{ form(delete_form) }}</div>
+</ul>
+
+{% endblock %}
+{% endblock %}
+
+

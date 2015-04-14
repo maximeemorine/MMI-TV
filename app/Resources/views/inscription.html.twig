@@ -15,7 +15,9 @@
 
         <!-- Google Font -->
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900' rel='stylesheet' type='text/css'>
-
+<script type="text/javascript">
+    
+</script>
     </head>
 
     <body>
@@ -38,6 +40,14 @@
                          <!-- <i class="icon-enter"></i> Déconnexion -->
 
                     </div>
+                </div>
+
+                
+                   <div class="user">                    
+                      <a href="{{ path('fos_user_profile_show') }}">Profil</a>
+                      <a href="{{ path('fos_user_change_password') }}">Mot de passe</a>
+                      <a href="#">Aide</a>
+                      <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
                 </div>
 
             </div>
@@ -72,7 +82,7 @@
             <div class="submenu" id="submenu">
                 <a href="#"><i class="icon-users"></i> <span>Utilisateurs</span></a>
                 <div class="sub-content hide" id="sub-content">
-                    <a href="{{ path('mmitv_back_utilisateurs_index') }}"> Liste</a>
+                    <a href="{{ path('user') }}"> Liste</a>
                     <a href="{{ path('mmitv_back_utilisateurs_add') }}"> Ajouter</a>
                 </div>
             </div>
