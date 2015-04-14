@@ -16,7 +16,6 @@ body {
 	margin: 0 auto;
 }
 
-
 #main-container{
 
 	position: relative;
@@ -56,10 +55,6 @@ body {
 		}
 	}
 
-	#navicon{
-		top: 40%;
-		left: 40%;
-	}
 
 	#bandeau_tweets{
 		width: 100vw;
@@ -67,7 +62,7 @@ body {
 		bottom: 0;
 		background-color: rgba(60, 190, 107, 0.6);
 
-		.slider_tweets {
+		.slider_tweets{
 			position: relative; overflow: auto;
 
 			li {
@@ -84,7 +79,7 @@ body {
 
 	#synthe{
 
-		bottom: 150px;
+		bottom: 100px;
 		left: 45px;
 		div{
 			display: inline-block;

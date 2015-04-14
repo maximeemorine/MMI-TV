@@ -22,28 +22,44 @@
 
 	<body>
 
-
 		<nav id="nav">
 
 			<div id="heure">
-				<p>22:37</p>
+				<p></p>
 			</div>
 
 			<div id="edt">
 
 				<h1>Prochains cours</h1>
 
-				<h2>MMI2</h2>
+				<div class="slider_edt">
+					<ul>
+						<!-- <li id="mmi1">
 
-				<ul>
-					<li>Groupe A : M42A5 - H101</li>
-					<li>Groupe B : M42A2 - H105</li>
-					<li>Groupe C : M42C5 - H006</li>
-					<li>Groupe D : M42C5 - H007</li>
-					<li>Groupe E : M42C4 - H008</li>
-					<li>Groupe F : M42C2 - H001</li>
-					<li>Groupe G : M42B3 - E110</li>
-				</ul>
+							<h2>MMI 1</h2>
+
+						</li>
+
+						<li id="mmi1d">
+
+							<h2>MMI 1D</h2>
+
+						</li>
+
+						<li id="mmi2">
+
+							<h2>MMI 2</h2>
+
+						</li>
+
+						<li id="mmi2d">
+
+							<h2>MMI 2D</h2>
+
+						</li>
+ -->
+					</ul>
+				</div>
 
 			</div>
 
@@ -62,10 +78,6 @@
 
 			<div id="logo">
 				<img src="{{ asset('bundles/mmitvfront/images/logo.svg')}}" alt="">
-			</div>
-
-			<div id="navicon">
-				<a id='nav-trigger' href="#">Cliquer ici pour l'emploi du temps	(demo)</a>
 			</div>
 
 			<div id="bandeau_tweets">
@@ -97,16 +109,6 @@
 		<script type="text/javascript" src="{{ asset('bundles/mmitvfront/js/jquery.min.js')}}"></script>
 		<script type="text/javascript" src="{{ asset('bundles/mmitvfront/js/main.js')}}"></script>
 		<script type="text/javascript" src="{{ asset('bundles/mmitvfront/js/unslider.js')}}"></script>
-		<script>
-			$('.slider_tweets').unslider({
-				speed: 0, //temps de transition du slider (O = aucun effet de sliding)
-				delay: 8000, //changer ici le temps de changement entre chaque tweets
-				complete: function() {},
-				keys: true,
-				dots: false,
-				fluid: false
-			});
-		</script>
 
 		<script>
 			// var tweetURL = encodeURIComponent("https://twitter.com/Devergranne/status/586112559394197504");

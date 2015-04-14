@@ -92,9 +92,6 @@ body {
     width: 15%; }
     #main-container #logo img {
       width: 100%; }
-  #main-container #navicon {
-    top: 40%;
-    left: 40%; }
   #main-container #bandeau_tweets {
     width: 100vw;
     padding: 15px 0;
@@ -110,7 +107,7 @@ body {
           color: white;
           font-size: 18px; }
   #main-container #synthe {
-    bottom: 150px;
+    bottom: 100px;
     left: 45px; }
     #main-container #synthe div {
       display: inline-block; }
@@ -175,22 +172,20 @@ body {
         width: 20px;
         background-color: black;
         margin: 10px auto; }
-    #nav #edt h2 {
-      font-size: 20px;
-      margin-bottom: 20px;
-      border-bottom: 1px solid black;
-      padding-bottom: 4px; }
-    #nav #edt ul li {
-      margin-bottom: 20px; }
-
-/* Slide out navigation list items */
-#nav ul li {
-  display: block;
-  clear: both; }
-
-#nav ul li a {
-  display: block;
-  width: 100%;
-  height: 100%; }
+    #nav #edt .slider_edt {
+      position: relative;
+      overflow: auto;
+      width: 100%; }
+      #nav #edt .slider_edt ul > li {
+        list-style: none;
+        float: left;
+        width: 100%; }
+        #nav #edt .slider_edt ul > li > ul > li {
+          padding: 12px 0; }
+        #nav #edt .slider_edt ul > li h2 {
+          font-size: 20px;
+          margin-bottom: 20px;
+          border-bottom: 1px solid black;
+          padding-bottom: 4px; }
 
 /*# sourceMappingURL=style.css.map */
