@@ -133,7 +133,6 @@ body {
   height: 100%;
   z-index: 3;
   overflow: auto;
-  background: rgba(255, 255, 255, 0.8);
   -webkit-transition: -webkit-transform 0.4s;
   -moz-transition: -moz-transform 0.4s;
   transition: transform 0.4s;
@@ -149,7 +148,7 @@ body {
     /* Safari */
     transform: translate(0%, 0) !important; }
   #nav #heure {
-    background: rgba(46, 143, 176, 0.6); }
+    background: rgba(60, 137, 190, 0.7); }
     #nav #heure p {
       color: white;
       font-size: 70px;
@@ -157,6 +156,8 @@ body {
       padding: 40px 0;
       font-weight: 100; }
   #nav #edt {
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7);
     padding: 20px;
     font-weight: 400; }
     #nav #edt h1 {

@@ -35,13 +35,6 @@ class videos
     private $nomVideos;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="plateforme_videos", type="string", length=25)
-     */
-    private $plateformeVideos;
-
-    /**
      * @var \DateTime
      *
      * @ORM\Column(name="duree_videos", type="time")
@@ -62,17 +55,11 @@ class videos
      */
     private $finVideos;
 
-    /**
-     *
-     * @ORM\ManyToOne(targetEntity="Mmitv\BackBundle\Entity\membre" )
-     */
-    private $playlist_id;
-
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -95,7 +82,7 @@ class videos
     /**
      * Get lienVideos
      *
-     * @return string 
+     * @return string
      */
     public function getLienVideos()
     {
@@ -118,34 +105,11 @@ class videos
     /**
      * Get nomVideos
      *
-     * @return string 
+     * @return string
      */
     public function getNomVideos()
     {
         return $this->nomVideos;
-    }
-
-    /**
-     * Set plateformeVideos
-     *
-     * @param string $plateformeVideos
-     * @return videos
-     */
-    public function setPlateformeVideos($plateformeVideos)
-    {
-        $this->plateformeVideos = $plateformeVideos;
-
-        return $this;
-    }
-
-    /**
-     * Get plateformeVideos
-     *
-     * @return string 
-     */
-    public function getPlateformeVideos()
-    {
-        return $this->plateformeVideos;
     }
 
     /**
@@ -164,7 +128,7 @@ class videos
     /**
      * Get dureeVideos
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDureeVideos()
     {
@@ -187,7 +151,7 @@ class videos
     /**
      * Get debutVideos
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDebutVideos()
     {
@@ -210,68 +174,11 @@ class videos
     /**
      * Get finVideos
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getFinVideos()
     {
         return $this->finVideos;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->playlist_id = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
-    /**
-     * Add playlist_id
-     *
-     * @param \Mmitv\BackBundle\Entity\membre $playlistId
-     * @return videos
-     */
-    public function addPlaylistId(\Mmitv\BackBundle\Entity\membre $playlistId)
-    {
-        $this->playlist_id[] = $playlistId;
-
-        return $this;
-    }
-
-    /**
-     * Remove playlist_id
-     *
-     * @param \Mmitv\BackBundle\Entity\membre $playlistId
-     */
-    public function removePlaylistId(\Mmitv\BackBundle\Entity\membre $playlistId)
-    {
-        $this->playlist_id->removeElement($playlistId);
-    }
-
-    /**
-     * Get playlist_id
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getPlaylistId()
-    {
-        return $this->playlist_id;
-    }
-    /**
-     * @var integer
-     */
-    private $playlistId;
-
-
-    /**
-     * Set playlistId
-     *
-     * @param integer $playlistId
-     * @return videos
-     */
-    public function setPlaylistId($playlistId)
-    {
-        $this->playlistId = $playlistId;
-
-        return $this;
-    }
 }
