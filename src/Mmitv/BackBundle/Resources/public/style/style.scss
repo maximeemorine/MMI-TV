@@ -2,7 +2,7 @@
 
 
 
-$primary-color: #2e8fb0; //Couleur principale: le vert
+$primary-color: #2e8fb0; //Couleur principale: le bleu
 $secondary-color: #f5f5f5; // Couleur secondaire: le gris clair
 $font-color: #323232; // COuleur de police: gris foncé
 $secondary-font-color: #a5a4a4; //Couleur de police plus claire : gris mi-clair
@@ -13,7 +13,6 @@ $font-subtitle: 300 18px "Roboto", Serif; //Police des titres
 $font-text: 300 16px Roboto, Arial; //Police du texte
 $font-button: 700 14px Roboto; //Police du bouton
 $font-nav: 300 16px Roboto;
-
 
 
 @mixin bg_cover(){

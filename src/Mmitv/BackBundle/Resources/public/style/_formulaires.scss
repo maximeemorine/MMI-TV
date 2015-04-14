@@ -1,3 +1,4 @@
+
 input[type=text], textarea, select{
   width: 100%;
   border: solid 1px gray;
@@ -17,22 +18,29 @@ input{
   margin: 10px 0 30px 0;
 }
 
-input[type=submit]{
-  background-color: $primary-color;
-  color: white;
-  width: 100%;
-  text-transform: uppercase;
-  font: $font-button;
-  font-size: 16px;
-  padding: 10px;
-  margin-top: 30px;
+input[type=submit], button[type=submit]{
+    background-color: white;
+    color: $primary-color;
+    width: 100%;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border: 2px solid $primary-color;
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: inherit;
+    font-family: inherit;
+    font-size: inherit;
 
-  &:hover{
+    @include transition_all(0.2s);
 
-    background-color: $primary-color +10;
-  }
-
+    &:hover{
+        background-color: $primary-color;
+        color: white;
+    }
 }
+
+
 
 
 textarea{

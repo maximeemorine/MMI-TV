@@ -7,6 +7,8 @@
 	    	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 
+        <script type="text/javascript" src="{{ asset('bundles/mmitvfront/js/jquery.min.js')}}"></script>
+
 		<meta charset="UTF-8">
 		<title></title>
 		<meta name="viewport" content="width=device-width" />
@@ -15,17 +17,148 @@
 		<link rel="stylesheet" type="text/css" href="{{ asset('bundles/mmitvfront/style/style.css')}}">
 
 		<!-- Google Font -->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900' rel='stylesheet' type='text/css'>
 
+        <script type="text/javascript">
+            console.log('salut !');
+
+            var edt = [];
+
+            $.ajax({
+                url: 'http://intranet.iut-troyes.univ-reims.fr/api/edtavenir/',
+                dataType:'json',
+                success: function(edt){
+                    videos.push(edt);
+                    console.log(edt);
+                }
+            });
+
+            var videos = [];
+            $.ajax({
+                url: '{{ path("mmitv_front_json") }}',
+                dataType:'json',
+                async : false,
+                success: function(video){
+                    videos.push(video)
+                }
+            });
+
+            var i = 0;
+
+            var tag = document.createElement('script');
+            tag.src = "https://www.youtube.com/player_api";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+            var player;
+            function onYouTubePlayerAPIReady() {
+                console.log(videos);
+                player = new YT.Player('ytplayer', {
+                    height: '900', // A CHANGER
+                    width: '1600', // A CHANGER
+                    videoId: videos[0][i]['lienVideos'],
+                    playerVars : {
+                        'autoplay' : 1,
+                        'controls' : 1
+
+                    },
+                    events: {
+                        'onReady' : onPlayerReady,
+                        'onStateChange': onPlayerStateChange
+                    }
+                })
+            }
+
+
+            function onPlayerStateChange(event) {
+                if(event.data == YT.PlayerState.PLAYING){
+                    setTimeout(stopVideo, 12000); //Les videos ne sont lu que 5 secondes
+                    console.log('fini1 !');
+                    i++;
+                }
+            }
+
+            function videoSuivante(){
+                console.log('Load video');
+                player.loadVideoById(videos[0][i]['lienVideos']);
+            }
+
+            function stopVideo() {
+                player.stopVideo();
+                console.log('stopVideo');
+                if (videos[0][i]['lienVideos'] !== undefined){
+                    player.loadVideoById(videos[0][i]['lienVideos']);
+                }else{
+                    document.getElementById("ytplayer").remove();
+                }
+            }
+        </script>
 
 	</head>
 
 	<body>
 
-		<h1>Page accueil du front</h1>
+
+		<nav id="nav">
+
+			<div id="heure">
+				<p>22:37</p>
+			</div>
+
+			<div id="edt">
+
+				<h1>Prochains cours</h1>
+
+				<h2>MMI2</h2>
+
+				<ul>
+					<li>Groupe A : M42A5 - H101</li>
+					<li>Groupe B : M42A2 - H105</li>
+					<li>Groupe C : M42C5 - H006</li>
+					<li>Groupe D : M42C5 - H007</li>
+					<li>Groupe E : M42C4 - H008</li>
+					<li>Groupe F : M42C2 - H001</li>
+					<li>Groupe G : M42B3 - E110</li>
+				</ul>
+
+			</div>
+
+		</nav>
+
+		<div id="main-container">
+
+			<!-- Vidéo de la page ici -->
+			<div id="ytplayer">
+				<!--<iframe src="https://www.youtube.com/embed/0vxOhd4qlnA" frameborder="0" allowfullscreen></iframe>-->
+			</div>
+
+			<!--  -->
+
+			<div id="logo">
+				<img src="{{ asset('bundles/mmitvfront/images/logo.svg')}}" alt="">
+			</div>
+
+			<div id="navicon">
+				<a id='nav-trigger' href="#">Cliquer ici pour l'emploi du temps	(demo)</a>
+			</div>
+
+			<div id="bandeau_tweets">
+				<div class="container">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere expedita illum maiores perferendis.</p>
+				</div>
+			</div>
+
+			<div id="synthe">
+				<div id="left"><p>Vous regardez</p></div><!--
+			 --><div id="right"><p>Interstellar - Christopher Nolan</p></div>
+			</div>
 
 
+
+		</div>
 
 		<script type="text/javascript" src="{{ asset('bundles/mmitvfront/js/jquery.min.js')}}"></script>
+		<script type="text/javascript" src="{{ asset('bundles/mmitvfront/js/main.js')}}"></script>
 
 	</body>
 

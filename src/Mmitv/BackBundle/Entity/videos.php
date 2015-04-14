@@ -6,48 +6,56 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * videos
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Mmitv\BackBundle\Entity\videosRepository")
  */
 class videos
 {
     /**
      * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="lienVideos", type="string", length=40)
      */
     private $lienVideos;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="nomVideos", type="string", length=40)
      */
     private $nomVideos;
 
     /**
-     * @var string
-     */
-    private $plateformeVideos;
-
-    /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="dureeVideos", type="time")
      */
     private $dureeVideos;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="debutVideos", type="time")
      */
     private $debutVideos;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="finVideos", type="time")
      */
     private $finVideos;
 
-    /**
-     *@ORM\ManyToMany(targetEntity="Mmitv\BackBundle\Entity\membre")
-     */
-    private $playlistId;
 
 
     /**
@@ -104,29 +112,6 @@ class videos
     public function getNomVideos()
     {
         return $this->nomVideos;
-    }
-
-    /**
-     * Set plateformeVideos
-     *
-     * @param string $plateformeVideos
-     * @return videos
-     */
-    public function setPlateformeVideos($plateformeVideos)
-    {
-        $this->plateformeVideos = $plateformeVideos;
-
-        return $this;
-    }
-
-    /**
-     * Get plateformeVideos
-     *
-     * @return string 
-     */
-    public function getPlateformeVideos()
-    {
-        return $this->plateformeVideos;
     }
 
     /**
@@ -196,28 +181,5 @@ class videos
     public function getFinVideos()
     {
         return $this->finVideos;
-    }
-
-    /**
-     * Set playlistId
-     *
-     * @param integer $playlistId
-     * @return videos
-     */
-    public function setPlaylistId($playlistId)
-    {
-        $this->playlistId = $playlistId;
-
-        return $this;
-    }
-
-    /**
-     * Get playlistId
-     *
-     * @return integer 
-     */
-    public function getPlaylistId()
-    {
-        return $this->playlistId;
     }
 }

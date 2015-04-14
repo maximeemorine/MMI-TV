@@ -8,7 +8,11 @@ class UtilisateursController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('MmitvBackBundle:Utilisateurs:index.html.twig');
+
+    		$em = $this->getDoctrine()->getEntityManager();
+    		$user = $em->getRepository("MmitvBackBundleUserBundle:user")->findAll();
+
+        return $this->render('MmitvBackBundle:Utilisateurs:index.html.twig', array('user' =>$user,));
     }
 
     public function addAction()

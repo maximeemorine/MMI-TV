@@ -6,31 +6,46 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * membre
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Mmitv\BackBundle\Entity\membreRepository")
  */
 class membre
 {
     /**
      * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="nom_membre", type="string", length=50)
      */
     private $nomMembre;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="prenom_membre", type="string", length=25)
      */
     private $prenomMembre;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="email_membre", type="string", length=55)
      */
     private $emailMembre;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="statut_membre", type="string", length=55)
      */
     private $statutMembre;
 

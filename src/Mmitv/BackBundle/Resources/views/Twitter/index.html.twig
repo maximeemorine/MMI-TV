@@ -10,15 +10,29 @@
 				Renseignez ici les comptes Twitter ainsi que les tweets que vous souhaitez diffuser dans le bandeau inférieur de l'interface TV.
 			</p>
 
-			<form action="">
-				<label for="lien">Lien du tweet</label><input id="lien" type="text">
-				<div type="submit" class="bouton"><a href="#">Ajouter ce tweet</a></div>
-			</form>
+			{{ form(form) }}
 
 
 
+			{% for tweet in tweets %}
 
-			<div class="in_bloc_back">
+				<div class="in_bloc_back">
+					<h2>{{ tweet.compteTweet }}</h2>
+
+					<!-- <h2><a href="https://twitter.com/MMI_Troyes/status/579226271898603520">Nom du compte</a></h2>
+					<h3>https://twitter.com/[...]898603520</h3>
+					<p>Fin des vœux #APB: vous avez été encore plus nombreux que les années précédentes à candidater @MMI_Troyes Merci de votre confiance!</p> -->
+
+					<div class="bouton"><a href="{{ path('mmitv_back_twitter_edit', {id: tweet.id}) }}">Modifier</a></div>
+					<div class="bouton_rouge"><a href="{{ path('mmitv_back_twitter_delete', {id: tweet.id}) }}">Supprimer</a></div>
+				</div>
+
+
+			{% endfor %}
+
+
+
+			<!-- <div class="in_bloc_back">
 				<h2><a href="https://twitter.com/MMI_Troyes/status/579226271898603520">Nom du compte</a></h2>
 				<h3>https://twitter.com/[...]898603520</h3>
 				<p>Fin des vœux #APB: vous avez été encore plus nombreux que les années précédentes à candidater @MMI_Troyes Merci de votre confiance!</p>
@@ -73,7 +87,7 @@
 				<div class="bouton"><a href="">Modifier</a></div>
 				<div class="bouton_rouge"><a href="">Supprimer</a></div>
 			</div>
-
+ -->
 {% endblock %}
 
 

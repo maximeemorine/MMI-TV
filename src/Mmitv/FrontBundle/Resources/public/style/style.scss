@@ -1,7 +1,7 @@
 // On défini les variables
 
 // Couleurs
-$primary-color: #fff;
+$primary-color: #2e8fb0;
 $secondary-color: #fff;
 $third-color: #fff;
 $text-color: #fff;
@@ -19,24 +19,20 @@ $text-font: 400 16px 'Open Sans', Arial;
 	background-size: cover; /* version standardisÃ©e */
 }
 
-@mixin transition_all($time){
+@mixin transition($property, $time){
 
-	-webkit-transition: all $time;
-	-moz-transition: all $time;
-	transition: all $time;
+	-webkit-transition: $property $time;
+	-moz-transition: $property $time;
+	transition: $property $time;
 }
 
 
 
 // Import du reset CSS
 @import 'reset';
+@import 'mediaqueries';
+@import 'general';
+@import 'nav';
 
 
-.clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-.clearfix {
-  *zoom: 1;
-}
+
