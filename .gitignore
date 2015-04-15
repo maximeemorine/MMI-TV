@@ -7,6 +7,9 @@
 /app/phpunit.xml
 /bin/
 /composer.phar
-/vendor/
-!/vendor/friendsofsymfony
+/vendor/*
+!/vendor/friendsofsymfony/user-bundle/Resources/views/Security/login.html.twig
+!/vendor/friendsofsymfony/user-bundle/Resources/views/Profile/show.html.twig
+!/vendor/friendsofsymfony/user-bundle/Resources/views/Registration/register.html.twig
+!/vendor/friendsofsymfony/user-bundle/Resources/views/ChangePassword/changePassword.html.twig
 /web/bundles/
