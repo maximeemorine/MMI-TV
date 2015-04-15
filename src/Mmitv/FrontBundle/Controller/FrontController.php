@@ -15,8 +15,12 @@ class FrontController extends Controller
 
     	$em = $this->getDoctrine()->getManager();
         $tweets = $em->getRepository('MmitvBackBundle:tweet')->findAll();
+        $videos = $em->getRepository('MmitvBackBundle:videos')->findAll();
 
-        return $this->render('MmitvFrontBundle:Front:index.html.twig', array('tweets' => $tweets));
+        return $this->render('MmitvFrontBundle:Front:index.html.twig', array(
+            'tweets' => $tweets,
+            'videos' => $videos
+            ));
     }
 
     public function jsonAction()
