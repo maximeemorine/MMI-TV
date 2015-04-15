@@ -56,7 +56,7 @@
                       <a href="#">Aide</a>
                       <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
                 </div> -->
-
+    
             </div>
 
 
@@ -87,7 +87,7 @@
             </div>
 
             <div class="submenu" id="submenu">
-                <a href="{{ path('mmitv_back_twitter_index') }}"><span>Twitter</span></a>
+                <a href="{{ path('mmitv_back_twitter_index') }}"><span>Messages</span></a>
             </div>
 
 {% if is_granted('ROLE_SUPER_ADMIN') %}
@@ -127,90 +127,7 @@
 
 
 
-        <script>
 
-        $(document).ready(function() {
-
-            $('#external-events .fc-event').each(function() {
-
-                // store data so the calendar knows to render an event upon drop
-                $(this).data('event', {
-                    title: $.trim($(this).text()), // use the element's text as the event title
-                    stick: true // maintain when user navigates (see docs on the renderEvent method)
-                });
-
-                // make the event draggable using jQuery UI
-                $(this).draggable({
-                    zIndex: 999,
-                    revert: true,      // will cause the event to go back to its
-                    revertDuration: 0  //  original position after the drag
-                });
-
-            });
-
-            // On initialise le calendrier...
-
-            $('#calendar').fullCalendar({
-
-
-                lang: 'fr', // francais
-                defaultView: 'agendaWeek', //Vue par defaut : en semaine
-
-                header: {
-                    left: 'prev,next today', // a fauche : les boutons pour changer de semaine
-                    center: 'title',
-                    right: 'agendaWeek,agendaDay'
-                },
-
-                allDaySlot: false,
-                slotEventOverlap : false,
-
-                weekends: false, // pas de WE
-
-                eventColor: '#2e8fb0', // couleur des bulles d'evenement
-                minTime: '08:00', // la journée commence a 8h
-                maxTime:'20:00', // et finit a 20h
-
-                editable:true,
-                eventDurationEditable: false,
-
-                droppable: true, // autorise des elements a etre dragués dans le calendrier
-                dragRevertDuration: 200,
-
-
-                eventClick: function (calEvent, jsEvent, view) {
-                    $('#calendar').fullCalendar('removeEvents', calEvent._id);
-                },
-
-
-                // Quand on a fini le drag on UPDATE la BDD avec la nouvelle date
-                eventDragStop: function(event, jsEvent, ui, view){
-
-                    // Event is an event object that hold the event's info (title, date, ...)
-
-                    alert("DRAG fini : on update la BDD avec ces informations. Titre: "+event.title+" ; début de la vidéo : "+event.start);
-                },
-
-                // Quand on a fini le resizing on UPDATE la BDD avec la nouvelle date
-                eventResizeStop: function(event, jsEvent, ui, view){
-
-                    // Event is an event object that hold the event's info (title, date, ...)
-
-                    alert("RESIZE fini : on update la BDD avec ces informations. Titre: "+event.title+" ; début de la vidéo : "+event.start);
-                },
-
-                // Quand on a dragué un nouvel élement on AJOUTE dans la BDD
-                drop: function(date, jsEvent, ui){
-
-                    // Event is an event object that hold the event's info (title, date, ...)
-
-                    alert("ADD fini : on update la BDD avec ces informations. Date: "+date.format());
-                },
-
-            })
-
-        });
-        </script>
 
 
     </body>

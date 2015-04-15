@@ -26,6 +26,9 @@ class VideoController extends Controller
 
        	// ajouter une video par le formulaire
         $video = new videos();
+        $date = '1970-01-01 00:00:00';
+        $video->setDebutVideos(new \DateTime($date));
+
 	    $form = $this->createForm(new videosType(), $video);
 
 	    if ($form->handleRequest($request)->isValid()) {

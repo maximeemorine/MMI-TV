@@ -1,4 +1,4 @@
-{% extends 'MmitvBackBundle::base.html.twig' %}
+    {% extends 'MmitvBackBundle::base.html.twig' %}
 
 {% block main %}
 
@@ -17,7 +17,7 @@
                 <h2>{{ entity.username }}</h2>
                 <h3>Rôle (admin/redacteur)</h3>
                 <p>{{ entity.email }}</p>
-                     <div class="bouton"><a href="{{ path('user_edit', { 'id': entity.id }) }}">Modifier</a></div>
+                     <div class="bouton"><a href="{{ path('user_edit', { 'id': entity.id }) }}">Modifier</a></div>                  
             </div>       
         {% endfor %}
       

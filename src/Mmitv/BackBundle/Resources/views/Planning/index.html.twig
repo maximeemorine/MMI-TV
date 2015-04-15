@@ -18,7 +18,7 @@
 
 				{% for video in videos %}
 
-					<div class="fc-event" data-duration="{{ video.dureeVideos|date('h:i') }}" id="{{ video.id }}">{{ video.nomVideos }}</div>
+					<div class="fc-event" data-duration="{{video.dureeVideos}}" id="{{ video.id }}">{{ video.nomVideos }}</div>
 
 				{% endfor %}
 
@@ -34,7 +34,156 @@
 
 
 
+			 <script>
 
+        $(document).ready(function() {
+
+            $('#external-events .fc-event').each(function() {
+
+                // store data so the calendar knows to render an event upon drop
+                $(this).data('event', {
+                    title: $.trim($(this).text()), // use the element's text as the event title
+                    stick: true // maintain when user navigates (see docs on the renderEvent method)
+                });
+
+                // make the event draggable using jQuery UI
+                $(this).draggable({
+                    zIndex: 999,
+                    revert: true,      // will cause the event to go back to its
+                    revertDuration: 0  //  original position after the drag
+                });
+
+            });
+
+            // On initialise le calendrier...
+
+            $('#calendar').fullCalendar({
+
+                events: [
+
+
+                	{% for video in videos %}
+
+	                	{
+	                        title: "{{ video.nomVideos }}",
+	                        start: "{{video.debutVideos|date('Y-m-d\\TH:i:sP')}}",
+	                        id: "{{ video.id }}"
+	                    },
+
+					{% endfor %}
+                ],
+
+
+                lang: 'fr', // francais
+                defaultView: 'agendaWeek', //Vue par defaut : en semaine
+
+                header: {
+                    left: 'prev,next today', // a fauche : les boutons pour changer de semaine
+                    center: 'title',
+                    right: 'agendaWeek,agendaDay'
+                },
+
+                allDaySlot: false,
+                slotEventOverlap : false,
+
+                weekends: false, // pas de WE
+
+                eventColor: '#2e8fb0', // couleur des bulles d'evenement
+                minTime: '08:00', // la journée commence a 8h
+                maxTime:'20:00', // et finit a 20h
+
+                editable:false,
+                eventDurationEditable: false,
+
+                droppable: true, // autorise des elements a etre dragués dans le calendrier
+                dragRevertDuration: 200,
+
+
+
+                // Quand on a fini le drag on UPDATE la BDD avec la nouvelle date
+                eventDragStop: function(event, jsEvent, ui, view){
+
+                	// alert("DRAG fini : on update la BDD avec ces informations. Titre: "+event.title+" ; début de la vidéo : "+event.start;
+
+                	$.ajax({
+                    	type: 'POST',
+					  	url: "{{ path('mmitv_back_planning_edit_drag') }}",
+					  	data: {
+					  		'id': this.id,
+					  		'start': event.start.format()
+					  	},
+
+					  	error: function(){
+					  		alert('FAIL');
+					  	},
+
+					  	success: function(){
+					  		alert('SUCCESS');
+					  	}
+
+					});
+
+                },
+
+
+                // Quand on a dragué un nouvel élement on AJOUTE dans la BDD
+                drop: function(date, jsEvent, ui){
+
+                    // alert("ADD fini : on update la BDD avec ces informations. Date: "+date.format());
+
+                    $.ajax({
+                    	type: 'POST',
+					  	url: "{{ path('mmitv_back_planning_edit_drop') }}",
+					  	data: {
+					  		'id': this.id,
+					  		'debut': date.format()
+					  	},
+
+					  	error: function(){
+					  		// alert('FAIL');
+					  	},
+
+					  	success: function(){
+					  		// alert('SUCCESS');
+					  	}
+
+					});
+
+                    $(this).remove();
+                },
+
+                eventClick: function (calEvent, jsEvent, view) {
+
+                    $('#calendar').fullCalendar('removeEvents', calEvent._id);
+
+                    // alert("Suppression  : on delete la BDD avec ces informations. Titre: "+calEvent.id);
+
+                    $.ajax({
+                    	type: 'POST',
+					  	url: "{{ path('mmitv_back_planning_delete') }}",
+					  	data: {'id': calEvent.id},
+
+					  	error: function(){
+					  		// alert('FAIL');
+					  	},
+
+					  	success: function(){
+					  		// alert('SUCCESS');
+					  	}
+
+					});
+                },
+
+                // Quand on a supprimé un élement
+                eventDestroy: function(event, element, view){
+
+
+                }
+
+            })
+
+        });
+        </script>
 
 
 
