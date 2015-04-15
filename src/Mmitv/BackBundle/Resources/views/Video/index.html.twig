@@ -25,8 +25,11 @@
 					<h2><a href="https://www.youtube.com/watch?v={{ video.lienVideos }}">{{ video.nomVideos }}</a></h2>
 					<h3>https://www.youtube.com/watch?v={{ video.lienVideos }}</h3>
 					<p>Durée de la vidéo : {{ video.dureeVideos|date('h:i:s') }}</p>
+
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
 					<div class="bouton"><a href="{{ path('mmitv_back_video_edit', {id: video.id}) }}">Modifier</a></div>
 					<div class="bouton_rouge"><a href="{{ path('mmitv_back_video_delete', {id: video.id}) }}">Supprimer</a></div>
+					{% endif %}
 				</div>
 
 			{% endfor %}
