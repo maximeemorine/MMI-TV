@@ -13,7 +13,7 @@
             Retourner à la liste
         </a>
     </li>
-    <div class="bouton_rouge">{{ form(delete_form) }}</div>
+   {{ form(delete_form, {'attr': {'class': 'bouton_rouge'}}) }}
 </ul>
 
 {% endblock %}

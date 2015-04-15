@@ -28,3 +28,7 @@ user_delete:
     path:     /{id}/supprimer
     defaults: { _controller: "MmitvBackBundleUserBundle:User:delete" }
     methods:  [POST, DELETE]
+
+mmitv_back_user_delete:
+    path:     /delete/{id}
+    defaults: { _controller: "MmitvBackBundleUserBundle:User:delete" }
