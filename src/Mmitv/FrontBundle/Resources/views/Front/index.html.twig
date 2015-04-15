@@ -327,6 +327,14 @@
 		</script>
 
         <script type="text/javascript">
+            var synthehide = $("#synthe").hide();
+            function hideSynthe(){
+                synthehide;
+            }
+
+            hideSynthe();
+
+
             var diffusion = false;
             var heureDeDiffusion = "";
             var heureActuelle= "";
@@ -338,7 +346,12 @@
                 now = now + 1;
             }
 
-            actualiseNow()
+            actualiseNow();
+
+            function updateandshow(duree){
+                document.getElementById('right').innerHTML = '<p>'+videos[0][i]['nomVideos']+'</p>';
+                $("#synthe").show().delay(duree).fadeOut();
+            }
 
 
                 if (2 > 1) {
@@ -389,12 +402,14 @@
                                 videoId: videos[0][i]['lienVideos'],
                                 playerVars: {
                                     'autoplay': 1,
-                                    'controls': 1
+                                    'controls': 0
                                 },
                                 events: {
                                     'onStateChange': onPlayerStateChange
                                 }
                             });
+                            updateandshow(12000);
+
                             i++;
                         }else{
                             setTimeout(onYouTubePlayerAPIReady, 8000);
@@ -424,6 +439,7 @@
                             if(lancement<now){
                                 setTimeout(supprOnair, 8000);
                                 setTimeout(player.loadVideoById(videos[0][i]['lienVideos']), 8000);
+                                updateandshow(20000);
                                 i++;
                             }else{
                                 setTimeout(stopVideo, 8000);
