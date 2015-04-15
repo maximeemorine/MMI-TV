@@ -2,15 +2,12 @@
 
 {% block main %}
 
-
-
             <h1>Modifier un message</h1>
 
 
-			{{ form(form) }}
-
-
-
+			{{ form_label(form.compteTweet, 'Votre message') }}<br/>
+			{{ form_widget(form.compteTweet) }}<br/><br/>
+			{{ form_end(form) }}
 
 
 {% endblock %}

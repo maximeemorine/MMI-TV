@@ -10,7 +10,10 @@
 				Renseignez ici les messages que vous souhaitez diffuser dans le bandeau inférieur de l'interface TV.
 			</p>
 
-			{{ form(form) }}
+
+			{{ form_label(form.compteTweet, 'Votre message') }}<br/>
+			{{ form_widget(form.compteTweet) }}<br/><br/>
+			{{ form_end(form) }}
 
 
 			{% for tweet in tweets %}
@@ -22,8 +25,13 @@
 					<h3>https://twitter.com/[...]898603520</h3>
 					<p>Fin des vœux #APB: vous avez été encore plus nombreux que les années précédentes à candidater @MMI_Troyes Merci de votre confiance!</p> -->
 
+					{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+
 					<div class="bouton"><a href="{{ path('mmitv_back_twitter_edit', {id: tweet.id}) }}">Modifier</a></div>
 					<div class="bouton_rouge"><a href="{{ path('mmitv_back_twitter_delete', {id: tweet.id}) }}">Supprimer</a></div>
+
+					{% endfor %}
+
 				</div>
 
 

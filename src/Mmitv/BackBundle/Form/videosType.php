@@ -17,7 +17,13 @@ class videosType extends AbstractType
         $builder
             ->add('lienVideos')
             ->add('nomVideos')
-            ->add('dureeVideos')
+
+
+            ->add('dureeVideos', 'text', array(
+                'attr' => array(
+                    'placeholder' => 'De la forme hh:mm',
+                ))
+            )
             ->add('Ajouter cette vidéo', 'submit')
         ;
     }

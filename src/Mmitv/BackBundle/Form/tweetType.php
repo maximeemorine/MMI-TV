@@ -16,7 +16,7 @@ class tweetType extends AbstractType
     {
         $builder
             ->add('compteTweet', 'text')
-            ->add('Ajouter ce tweet', 'submit')
+            ->add('Ajouter ce message', 'submit')
         ;
     }
 
