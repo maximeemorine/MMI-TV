@@ -44,7 +44,7 @@ class videos
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="debut_videos", type="time")
+     * @ORM\Column(name="debut_videos", type="datetime")
      */
     private $debutVideos;
 
