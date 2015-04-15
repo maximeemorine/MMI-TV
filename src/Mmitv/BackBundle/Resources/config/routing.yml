@@ -10,6 +10,18 @@ mmitv_back_video_index:
     path:     /back/video/index
     defaults: { _controller: MmitvBackBundle:Video:index }
 
+mmitv_back_video_add:
+    path:     /back/video/add
+    defaults: { _controller: MmitvBackBundle:Video:add }
+
+mmitv_back_video_edit:
+    path:     /back/video/edit/{id}
+    defaults: { _controller: MmitvBackBundle:Video:edit }
+
+mmitv_back_video_delete:
+    path:     /back/video/delete/{id}
+    defaults: { _controller: MmitvBackBundle:Video:delete }
+
 mmitv_back_planning_index:
     path:     /back/planning/index
     defaults: { _controller: MmitvBackBundle:Planning:index }

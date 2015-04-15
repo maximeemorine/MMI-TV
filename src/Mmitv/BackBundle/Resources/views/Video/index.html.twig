@@ -3,10 +3,6 @@
 {% block main %}
 
 
-
-
-
-
             <h1>Vidéo</h1>
 
 			<p>
@@ -14,73 +10,27 @@
 				Après avoir ajouté les vidéos, rendez-vous dans la section <a href="{{ path('mmitv_back_planning_index') }}">planning</a> pour choisir la date de diffusion des vidéos.
 			</p>
 
-			{{ form(form) }}
-
 			<!-- <form action="">
 				<label for="lien">Lien de la vidéo</label><input id="lien" type="text">
 				<input type="submit" value="Ajouter une vidéo">
 			</form>
- -->
+ 			-->
+
+			<div class="bouton"><a href="{{ path('mmitv_back_video_add') }}">Ajouter une vidéo</a></div>
 
 
+			{% for video in videos %}
 
+				<div class="in_bloc_back">
+					<h2><a href="https://www.youtube.com/watch?v={{ video.lienVideos }}">{{ video.nomVideos }}</a></h2>
+					<h3>https://www.youtube.com/watch?v={{ video.lienVideos }}</h3>
+					<p>Durée de la vidéo : {{ video.dureeVideos|date('h:i:s') }}</p>
+					<div class="bouton"><a href="{{ path('mmitv_back_video_edit', {id: video.id}) }}">Modifier</a></div>
+					<div class="bouton_rouge"><a href="{{ path('mmitv_back_video_delete', {id: video.id}) }}">Supprimer</a></div>
+				</div>
 
+			{% endfor %}
 
-			<div class="in_bloc_back">
-				<h2><a href="https://www.youtube.com/watch?v=dnJ8Z1bpKCA&spfreload=10">Titre vidéo</a></h2>
-				<h3>https://www.youtube.com/watch?v=dnJ8Z1bpKCA&spfreload=10</h3>
-				<p>Durée de la vidéo : 0heures 13minutes 26secondes</p>
-				<div class="bouton"><a href="">Modifier</a></div>
-				<div class="bouton_rouge"><a href="">Supprimer</a></div>
-			</div>
-
-			<div class="in_bloc_back">
-				<h2><a href="https://www.youtube.com/watch?v=dnJ8Z1bpKCA&spfreload=10">Titre vidéo</a></h2>
-				<h3>https://www.youtube.com/watch?v=dnJ8Z1bpKCA&spfreload=10</h3>
-				<p>Durée de la vidéo : 0heures 13minutes 26secondes</p>
-				<div class="bouton"><a href="">Modifier</a></div>
-				<div class="bouton_rouge"><a href="">Supprimer</a></div>
-			</div>
-
-			<div class="in_bloc_back">
-				<h2><a href="https://www.youtube.com/watch?v=dnJ8Z1bpKCA&spfreload=10">Titre vidéo</a></h2>
-				<h3>https://www.youtube.com/watch?v=dnJ8Z1bpKCA&spfreload=10</h3>
-				<p>Durée de la vidéo : 0heures 13minutes 26secondes</p>
-				<div class="bouton"><a href="">Modifier</a></div>
-				<div class="bouton_rouge"><a href="">Supprimer</a></div>
-			</div>
-
-			<div class="in_bloc_back">
-				<h2><a href="https://www.youtube.com/watch?v=dnJ8Z1bpKCA&spfreload=10">Titre vidéo</a></h2>
-				<h3>https://www.youtube.com/watch?v=dnJ8Z1bpKCA&spfreload=10</h3>
-				<p>Durée de la vidéo : 0heures 13minutes 26secondes</p>
-				<div class="bouton"><a href="">Modifier</a></div>
-				<div class="bouton_rouge"><a href="">Supprimer</a></div>
-			</div>
-
-			<div class="in_bloc_back">
-				<h2><a href="https://www.youtube.com/watch?v=dnJ8Z1bpKCA&spfreload=10">Titre vidéo</a></h2>
-				<h3>https://www.youtube.com/watch?v=dnJ8Z1bpKCA&spfreload=10</h3>
-				<p>Durée de la vidéo : 0heures 13minutes 26secondes</p>
-				<div class="bouton"><a href="">Modifier</a></div>
-				<div class="bouton_rouge"><a href="">Supprimer</a></div>
-			</div>
-
-			<div class="in_bloc_back">
-				<h2><a href="https://www.youtube.com/watch?v=dnJ8Z1bpKCA&spfreload=10">Titre vidéo</a></h2>
-				<h3>https://www.youtube.com/watch?v=dnJ8Z1bpKCA&spfreload=10</h3>
-				<p>Durée de la vidéo : 0heures 13minutes 26secondes</p>
-				<div class="bouton"><a href="">Modifier</a></div>
-				<div class="bouton_rouge"><a href="">Supprimer</a></div>
-			</div>
-
-			<div class="in_bloc_back">
-				<h2><a href="https://www.youtube.com/watch?v=dnJ8Z1bpKCA&spfreload=10">Titre vidéo</a></h2>
-				<h3>https://www.youtube.com/watch?v=dnJ8Z1bpKCA&spfreload=10</h3>
-				<p>Durée de la vidéo : 0heures 13minutes 26secondes</p>
-				<div class="bouton"><a href="">Modifier</a></div>
-				<div class="bouton_rouge"><a href="">Supprimer</a></div>
-			</div>
 
 {% endblock %}
 
