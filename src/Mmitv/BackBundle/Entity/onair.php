@@ -5,12 +5,12 @@ namespace Mmitv\BackBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * off_air
+ * onair
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Mmitv\BackBundle\Entity\off_airRepository")
+ * @ORM\Entity(repositoryClass="Mmitv\BackBundle\Entity\onairRepository")
  */
-class off_air
+class onair
 {
     /**
      * @var integer
@@ -24,7 +24,7 @@ class off_air
     /**
      * @var string
      *
-     * @ORM\Column(name="video", type="string", length=75)
+     * @ORM\Column(name="video", type="string", length=255)
      */
     private $video;
 
@@ -32,7 +32,7 @@ class off_air
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -43,7 +43,7 @@ class off_air
      * Set video
      *
      * @param string $video
-     * @return off_air
+     * @return onair
      */
     public function setVideo($video)
     {
@@ -55,7 +55,7 @@ class off_air
     /**
      * Get video
      *
-     * @return string 
+     * @return string
      */
     public function getVideo()
     {

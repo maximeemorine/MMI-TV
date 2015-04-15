@@ -1,0 +1,35 @@
+{% extends 'MmitvBackBundle::base.html.twig' %}
+
+{% block main %}
+
+
+
+            <h1>Animation On-Air</h1>
+
+			<p>
+				Renseignez ici l'animation que vous souhaitez voir apparaitre sur les télévisions lors de l'arrivée d'un nouveau programme.
+			</p>
+
+
+			{% if onairs is empty %}
+				{{ form(form) }}
+			{% endif %}
+
+
+			{% for onair in onairs %}
+
+				<div class="in_bloc_back">
+					<h2>{{ onair.video }}</h2>
+					<p></p>
+
+					<div class="bouton_rouge"><a href="{{ path('mmitv_back_onair_delete', {id: onair.id}) }}">Supprimer</a></div>
+				</div>
+
+
+			{% endfor %}
+
+
+
+{% endblock %}
+
+

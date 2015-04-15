@@ -49,3 +49,27 @@ mmitv_back_utilisateurs_add:
 mmitv_back_utilisateurs_edit:
     path:     /back/utilisateurs/edit
     defaults: { _controller: FOSUserBundle:Profile:edit }
+
+mmitv_back_onair_index:
+    path:     /back/onair/index
+    defaults: { _controller: MmitvBackBundle:Onair:index }
+
+mmitv_back_onair_add:
+    path:     /back/onair/add
+    defaults: { _controller: MmitvBackBundle:Onair:add }
+
+mmitv_back_onair_delete:
+    path:     /back/onair/delete/{id}
+    defaults: { _controller: MmitvBackBundle:Onair:delete }
+
+mmitv_back_offair_index:
+    path:     /back/offair/index
+    defaults: { _controller: MmitvBackBundle:Offair:index }
+
+mmitv_back_offair_add:
+    path:     /back/offair/add
+    defaults: { _controller: MmitvBackBundle:Offair:add }
+
+mmitv_back_offair_delete:
+    path:     /back/offair/delete/{id}
+    defaults: { _controller: MmitvBackBundle:Offair:delete }

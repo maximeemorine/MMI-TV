@@ -124,17 +124,6 @@ time {
   margin-bottom: 20px;
   color: gray; }
 
-table {
-  width: 100%;
-  margin-top: 40px;
-  border-collapse: collapse; }
-  table thead, table tfoot {
-    font-weight: bold; }
-  table tr td {
-    text-align: center;
-    padding: 10px;
-    border: 1px solid gray; }
-
 form {
   margin: 80px 0; }
 
@@ -517,7 +506,7 @@ input {
 
 select {
   display: inline-block;
-  width: 10%;
+  width: 20%;
   margin: 2%; }
 
 input[type=submit], button[type=submit] {

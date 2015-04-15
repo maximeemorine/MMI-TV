@@ -16,6 +16,15 @@
         <!-- Google Font -->
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900' rel='stylesheet' type='text/css'>
 
+        <script type="text/javascript" src="{{ asset('bundles/mmitvback/js/jquery.min.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/mmitvback/js/app.js')}}"></script>
+
+        <link rel='stylesheet' href="{{ asset('bundles/mmitvback/fullcalendar/fullcalendar.css')}}" />
+        <script src="{{ asset('bundles/mmitvback/lib/moment.min.js')}}"></script>
+        <script src="{{ asset('bundles/mmitvback/lib/jquery-ui.min.js')}}"></script>
+        <script src="{{ asset('bundles/mmitvback/fullcalendar/fullcalendar.js')}}"></script>
+        <script src="{{ asset('bundles/mmitvback/lib/lang-fr.js')}}"></script>
+
     </head>
 
     <body>
@@ -59,32 +68,46 @@
         <div class="nav" id="nav">
             <div class="menu">
                 <a href="{{ path('mmitv_back_index') }}">
-                    <i class="icon-home3"></i> <span>Dashboard</span>
+                    <span>Dashboard</span>
                 </a>
             </div>
 
             <div class="submenu" id="submenu">
-                <a href="{{ path('mmitv_back_video_index') }}"><i class="icon-film"></i> <span>Vidéos</span></a>
+                <a href="#"><span>Vidéos</span></a>
+                <div class="sub-content hide" id="sub-content">
+                    <a href="{{ path('mmitv_back_video_index') }}"> Liste</a>
+                    <a href="{{ path('mmitv_back_video_add') }}"> Ajouter</a>
+                </div>
             </div>
 
             <div class="menu">
                 <a href="{{ path('mmitv_back_planning_index') }}">
-                    <i class="icon-calendar"></i> <span>Planning</span>
+                    <span>Planning</span>
                 </a>
             </div>
 
             <div class="submenu" id="submenu">
-                <a href="{{ path('mmitv_back_twitter_index') }}"><i class="icon-"></i> <span>Twitter</span></a>
+                <a href="{{ path('mmitv_back_twitter_index') }}"><span>Twitter</span></a>
             </div>
+
 {% if is_granted('ROLE_SUPER_ADMIN') %}
 
             <div class="submenu" id="submenu">
-                <a href="#"><i class="icon-users"></i> <span>Utilisateurs</span></a>
+                <a href="#"> <span>Utilisateurs</span></a>
                 <div class="sub-content hide" id="sub-content">
                     <a href="{{ path('user') }}"> Liste</a>
                     <a href="{{ path('mmitv_back_utilisateurs_add') }}"> Ajouter</a>
                 </div>
             </div>
+
+            <div class="submenu" id="submenu">
+                <a href="{{ path('mmitv_back_onair_index') }}"><span>Animation on-air</span></a>
+            </div>
+
+            <div class="submenu" id="submenu">
+                <a href="{{ path('mmitv_back_offair_index') }}"><span>Animation off-air</span></a>
+            </div>
+
 {% endif %}
 
         </div>
@@ -103,10 +126,96 @@
 		</div>
 
 
+
+        <script>
+
+        $(document).ready(function() {
+
+            $('#external-events .fc-event').each(function() {
+
+                // store data so the calendar knows to render an event upon drop
+                $(this).data('event', {
+                    title: $.trim($(this).text()), // use the element's text as the event title
+                    stick: true // maintain when user navigates (see docs on the renderEvent method)
+                });
+
+                // make the event draggable using jQuery UI
+                $(this).draggable({
+                    zIndex: 999,
+                    revert: true,      // will cause the event to go back to its
+                    revertDuration: 0  //  original position after the drag
+                });
+
+            });
+
+            // On initialise le calendrier...
+
+            $('#calendar').fullCalendar({
+
+
+                lang: 'fr', // francais
+                defaultView: 'agendaWeek', //Vue par defaut : en semaine
+
+                header: {
+                    left: 'prev,next today', // a fauche : les boutons pour changer de semaine
+                    center: 'title',
+                    right: 'agendaWeek,agendaDay'
+                },
+
+                allDaySlot: false,
+                slotEventOverlap : false,
+
+                weekends: false, // pas de WE
+
+                eventColor: '#2e8fb0', // couleur des bulles d'evenement
+                minTime: '08:00', // la journée commence a 8h
+                maxTime:'20:00', // et finit a 20h
+
+                editable:true,
+                eventDurationEditable: false,
+
+                droppable: true, // autorise des elements a etre dragués dans le calendrier
+                dragRevertDuration: 200,
+
+
+                eventClick: function (calEvent, jsEvent, view) {
+                    $('#calendar').fullCalendar('removeEvents', calEvent._id);
+                },
+
+
+                // Quand on a fini le drag on UPDATE la BDD avec la nouvelle date
+                eventDragStop: function(event, jsEvent, ui, view){
+
+                    // Event is an event object that hold the event's info (title, date, ...)
+
+                    alert("DRAG fini : on update la BDD avec ces informations. Titre: "+event.title+" ; début de la vidéo : "+event.start);
+                },
+
+                // Quand on a fini le resizing on UPDATE la BDD avec la nouvelle date
+                eventResizeStop: function(event, jsEvent, ui, view){
+
+                    // Event is an event object that hold the event's info (title, date, ...)
+
+                    alert("RESIZE fini : on update la BDD avec ces informations. Titre: "+event.title+" ; début de la vidéo : "+event.start);
+                },
+
+                // Quand on a dragué un nouvel élement on AJOUTE dans la BDD
+                drop: function(date, jsEvent, ui){
+
+                    // Event is an event object that hold the event's info (title, date, ...)
+
+                    alert("ADD fini : on update la BDD avec ces informations. Date: "+date.format());
+                },
+
+            })
+
+        });
+        </script>
+
+
     </body>
 
-	<script type="text/javascript" src="{{ asset('bundles/mmitvback/js/jquery.min.js')}}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/mmitvback/js/app.js')}}"></script>
+
 
 
 

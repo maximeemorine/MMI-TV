@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class videosType extends AbstractType
+class onairType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,10 +15,7 @@ class videosType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('lienVideos')
-            ->add('nomVideos')
-            ->add('debutVideos', 'time', array('widget' => 'choice', 'with_seconds' => true))
-            ->add('dureeVideos')
+            ->add('video', 'file')
             ->add('Ajouter cette vidéo', 'submit')
         ;
     }
@@ -29,7 +26,7 @@ class videosType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Mmitv\BackBundle\Entity\videos'
+            'data_class' => 'Mmitv\BackBundle\Entity\onair'
         ));
     }
 
@@ -38,6 +35,6 @@ class videosType extends AbstractType
      */
     public function getName()
     {
-        return 'mmitv_backbundle_videos';
+        return 'mmitv_backbundle_onair';
     }
 }

@@ -35,9 +35,9 @@ class videos
     private $nomVideos;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="duree_videos", type="time")
+     * @ORM\Column(name="duree_videos", type="string", length=40)
      */
     private $dureeVideos;
 
@@ -48,12 +48,7 @@ class videos
      */
     private $debutVideos;
 
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="fin_videos", type="time")
-     */
-    private $finVideos;
+
 
 
     /**
@@ -115,7 +110,7 @@ class videos
     /**
      * Set dureeVideos
      *
-     * @param \DateTime $dureeVideos
+     * @param string $dureeVideos
      * @return videos
      */
     public function setDureeVideos($dureeVideos)
@@ -128,7 +123,7 @@ class videos
     /**
      * Get dureeVideos
      *
-     * @return \DateTime
+     * @return string
      */
     public function getDureeVideos()
     {
@@ -158,27 +153,6 @@ class videos
         return $this->debutVideos;
     }
 
-    /**
-     * Set finVideos
-     *
-     * @param \DateTime $finVideos
-     * @return videos
-     */
-    public function setFinVideos($finVideos)
-    {
-        $this->finVideos = $finVideos;
 
-        return $this;
-    }
-
-    /**
-     * Get finVideos
-     *
-     * @return \DateTime
-     */
-    public function getFinVideos()
-    {
-        return $this->finVideos;
-    }
 
 }

@@ -13,6 +13,38 @@
 				Choisissez ici les dates et horaires de diffusion des vidéos. Glissez les vidéos ci-dessous sur l'endroit souhaité sur le planning.
 			</p>
 
+			<div id='external-events' class="in_bloc_back">
+				<h2>Vidéos ajoutées</h2>
+
+				{% for video in videos %}
+
+					<div class="fc-event" data-duration="{{ video.dureeVideos|date('h:i') }}" id="{{ video.id }}">{{ video.nomVideos }}</div>
+
+				{% endfor %}
+
+				<!-- <p>
+					<input type='checkbox' id='drop-remove' />
+					<label for='drop-remove'>remove after drop</label>
+				</p> -->
+			</div>
+
+
+
+			<div id='calendar'></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
 			<div class="mini_bloc_back">
 				<h2>Titre vidéo</h2>
 			</div>
@@ -244,7 +276,7 @@
 					<td></td>
 					<td></td>
 				</tr>
-			</table>
+			</table> -->
 
 
 

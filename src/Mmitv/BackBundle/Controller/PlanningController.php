@@ -8,7 +8,13 @@ class PlanningController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('MmitvBackBundle:Planning:index.html.twig');
+
+    	// récupérer toutes les vidéos pour les afficher
+    	$em = $this->getDoctrine()->getManager();
+        $videos = $em->getRepository('MmitvBackBundle:videos')->findAll();
+        // ---
+
+	    return $this->render('MmitvBackBundle:Planning:index.html.twig', array('videos' => $videos));
     }
 
     public function addAction()
