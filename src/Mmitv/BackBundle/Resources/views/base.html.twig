@@ -31,21 +31,22 @@
                             <a href="#">ADMINISTRATION</a>
                         </span>
                         <span class="path-divider">-</span>
-                        <span class="link">
-                            <a href="#">Retour sur le site</a>
-                        </span>
+
+                        <span><a href="{{ path('fos_user_profile_show') }}">Profil</a></span>
+                        <span><a href="{{ path('fos_user_change_password') }}">Mot de passe</a></span>
+                        <span><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></span>
 
                          <!-- <i class="icon-enter"></i> Déconnexion -->
 
                     </div>
                 </div>
 
-                <div class="user">                    
+               <!--  <div class="user">
                       <a href="{{ path('fos_user_profile_show') }}">Profil</a>
                       <a href="{{ path('fos_user_change_password') }}">Mot de passe</a>
                       <a href="#">Aide</a>
                       <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
-                </div>
+                </div> -->
 
             </div>
 

@@ -28,7 +28,6 @@
 
 
     <div id="login-form">
-
         <form action="{{ path("fos_user_security_check") }}" method="post" class="test">
             <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
@@ -40,10 +39,9 @@
 
             <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
             <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
-            
+
             <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
         </form>
-
     </div>
 
 
