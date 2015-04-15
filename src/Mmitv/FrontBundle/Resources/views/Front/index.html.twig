@@ -67,7 +67,9 @@
 		<div id="main-container">
 
 			<!-- Vidéo de la page ici -->
-			<img src="{{ asset('bundles/mmitvfront/images/bg.jpg')}}" alt="">
+			<div id="ytplayer">
+
+            </div>
 
 			<!-- <div id="player">
 				<iframe src="https://www.youtube.com/embed/0vxOhd4qlnA" frameborder="0" allowfullscreen></iframe>
@@ -109,16 +111,6 @@
 		<script type="text/javascript" src="{{ asset('bundles/mmitvfront/js/main.js')}}"></script>
 		<script type="text/javascript" src="{{ asset('bundles/mmitvfront/js/unslider.js')}}"></script>
 		<script>
-
-			// On simule l'affichage de l'emploi du temps
-
-				$( "body" ).keydown(function( event ) {
-					  if ( event.which == 13 ) {
-					  		$('nav').toggleClass('nav-open');
-					  }
-				});
-
-			//
 
 			function isset ()
 				{
@@ -331,6 +323,69 @@
 
 
 		</script>
+
+        <script type="text/javascript">
+            console.log('salut !');
+
+            var videos = [];
+            $.ajax({
+                url: '{{ path("mmitv_front_json") }}',
+                dataType:'json',
+                async : false,
+                success: function(video){
+                    videos.push(video)
+                }
+            });
+
+            var i = 0;
+
+            var tag = document.createElement('script');
+            tag.src = "https://www.youtube.com/player_api";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+            var player;
+            function onYouTubePlayerAPIReady() {
+                console.log(videos);
+                player = new YT.Player('ytplayer', {
+                    height: '900', // A CHANGER
+                    width: '1600', // A CHANGER
+                    videoId: videos[0][i]['lienVideos'],
+                    playerVars : {
+                        'autoplay' : 1,
+                        'controls' : 1
+
+                    },
+                    events: {
+                        'onStateChange': onPlayerStateChange
+                    }
+                })
+            }
+
+
+            function onPlayerStateChange(event) {
+                if(event.data == YT.PlayerState.PLAYING){
+                    setTimeout(stopVideo, 12000); //Les videos ne sont lu que 5 secondes
+                    console.log('fini1 !');
+                    i++;
+                }
+            }
+
+            function videoSuivante(){
+                console.log('Load video');
+                player.loadVideoById(videos[0][i]['lienVideos']);
+            }
+
+            function stopVideo() {
+                player.stopVideo();
+                console.log('stopVideo');
+                if (videos[0][i]['lienVideos'] !== undefined){
+                    player.loadVideoById(videos[0][i]['lienVideos']);
+                }else{
+                    document.getElementById("ytplayer").remove();
+                }
+            }
+        </script>
 
 		<script>
 			// var tweetURL = encodeURIComponent("https://twitter.com/Devergranne/status/586112559394197504");

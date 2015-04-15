@@ -6,3 +6,7 @@ mmitv_front_homepage:
 mmitv_front_index:
     path:     /
     defaults: { _controller: MmitvFrontBundle:Front:index }
+
+mmitv_front_json:
+    path:     /index/json
+    defaults: { _controller: MmitvFrontBundle:Front:json, _format: json }
