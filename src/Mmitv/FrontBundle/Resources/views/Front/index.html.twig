@@ -450,9 +450,31 @@
 
 
         <script type="text/javascript">
+            var synthehide = $("#synthe").hide();
+            function hideSynthe(){
+                synthehide;
+            }
+
+            hideSynthe();
+
+
             var diffusion = false;
             var heureDeDiffusion = "";
             var heureActuelle= "";
+            var now = {{ date().timestamp }} ;
+            var lancement = 0;
+
+            function actualiseNow(){
+                setTimeout(actualiseNow, 1000);
+                now = now + 1;
+            }
+
+            actualiseNow();
+
+            function updateandshow(duree){
+                document.getElementById('right').innerHTML = '<p>'+videos[0][i]['nomVideos']+'</p>';
+                $("#synthe").show().delay(duree).fadeOut();
+            }
 
 
                 if (2 > 1) {
@@ -465,7 +487,6 @@
 
                 if (!diffusion) {
                     document.getElementById("videos").innerHTML = '<video width="1920" height="1080" autoplay loop><source src="{{ asset('bundles/mmitvfront/images/offair2.mp4')}}" type="video/mp4"></video>';
-                    //placer ici function verifiant tout les intervals de temps si la diffusion doit commencer
                 } else {
 
 
@@ -481,12 +502,7 @@
                         }
                     });
 
-
                     var i = 0;
-
-                    var dureeVideo = (videos[0][i]['dureeVideos']['timestamp'] - 1429048800) * 1000;
-
-                    console.log(dureeVideo);
 
                     var tag = document.createElement('script');
                     tag.src = "https://www.youtube.com/player_api";
@@ -495,35 +511,41 @@
 
                     var player;
 
+
                     function onYouTubePlayerAPIReady() {
-                        console.log(videos);
-                        player = new YT.Player('ytplayer', {
-                            height: '900', // A CHANGER
-                            width: '1600', // A CHANGER
-                            videoId: videos[0][i]['lienVideos'],
-                            playerVars: {
-                                'autoplay': 1,
-                                'controls': 1
-                            },
-                            events: {
-                                'onStateChange': onPlayerStateChange
-                            }
-                        })
+                        console.log('oui ou non');
+                        var lancement = videos[0][i]['debutVideos']['timestamp'];
+                        console.log(lancement);
+                        console.log(now);
+                        if(lancement<now){
+                            player = new YT.Player('ytplayer', {
+                                height: '1080', // A CHANGER
+                                width: '1920', // A CHANGER
+                                videoId: videos[0][i]['lienVideos'],
+                                playerVars: {
+                                    'autoplay': 1,
+                                    'controls': 0
+                                },
+                                events: {
+                                    'onStateChange': onPlayerStateChange
+                                }
+                            });
+                            updateandshow(12000);
+
+                            i++;
+                        }else{
+                            setTimeout(onYouTubePlayerAPIReady, 8000);
+                        }
                     }
 
 
                     function onPlayerStateChange(event) {
-                        if (event.data == YT.PlayerState.PLAYING) {
-                            setTimeout(stopVideo, dureeVideo); //Les videos ne sont lu que 5 secondes
+                        if(event.data == YT.PlayerState.ENDED){
+                            stopVideo();
                             console.log('fini1 !');
-                            i++;
                         }
                     }
 
-                    //function videoSuivante() {
-                    //    console.log('Load video');
-                    //    player.loadVideoById(videos[0][i]['lienVideos']);
-                    //}
                     function supprOnair(){
                         document.getElementById("onair").remove();
                     }
@@ -531,13 +553,19 @@
                     function stopVideo() {
                         player.stopVideo();
                         console.log('stopVideo');
-                        //document.getElementById("videos").innerHTML='<video id="onair" width="1920" height="1080" autoplay><source src="{{ asset('bundles/mmitvfront/images/onair2.mp4')}}" type="video/mp4"></video>';
-                        //setTimeout(supprOnair, 2000);
                         if (videos[0][i] !== undefined) {
-                            dureeVideo = (videos[0][i]['dureeVideos']['timestamp'] - 1429048800) * 1000;
-                            document.getElementById("videos").innerHTML='<video id="onair" width="1920" height="1080" autoplay><source src="{{ asset('bundles/mmitvfront/images/onair2.mp4')}}" type="video/mp4"></video>';
-                            setTimeout(supprOnair, 8000);
-                            setTimeout(player.loadVideoById(videos[0][i]['lienVideos']), 8000);
+                            document.getElementById("videos").innerHTML='<video id="onair" width="1920" height="1080" autoplay loop><source src="{{ asset('bundles/mmitvfront/images/onair2.mp4')}}" type="video/mp4"></video>';
+                            var lancement = videos[0][i]['debutVideos']['timestamp'];
+                            console.log(lancement);
+                            console.log(now);
+                            if(lancement<now){
+                                setTimeout(supprOnair, 8000);
+                                setTimeout(player.loadVideoById(videos[0][i]['lienVideos']), 8000);
+                                updateandshow(20000);
+                                i++;
+                            }else{
+                                setTimeout(stopVideo, 8000);
+                            }
                         } else {
                             document.getElementById("ytplayer").remove();
                             document.getElementById("videos").innerHTML = '<div id="ytplayer"></div>';
