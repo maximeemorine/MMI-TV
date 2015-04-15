@@ -24,7 +24,7 @@ class tweet
     /**
      * @var string
      *
-     * @ORM\Column(name="compte_tweet", type="string", length=60)
+     * @ORM\Column(name="compte_tweet", type="string", length=500)
      */
     private $compteTweet;
 
@@ -38,7 +38,7 @@ class tweet
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -61,7 +61,7 @@ class tweet
     /**
      * Get compteTweet
      *
-     * @return string 
+     * @return string
      */
     public function getCompteTweet()
     {
@@ -101,7 +101,7 @@ class tweet
     /**
      * Get membre_id
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getMembreId()
     {

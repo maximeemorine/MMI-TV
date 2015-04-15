@@ -26,6 +26,18 @@ mmitv_back_planning_index:
     path:     /back/planning/index
     defaults: { _controller: MmitvBackBundle:Planning:index }
 
+mmitv_back_planning_edit_drop:
+    path:     /back/planning/edit
+    defaults: { _controller: MmitvBackBundle:Planning:editDrop }
+
+mmitv_back_planning_edit_drag:
+    path:     /back/planning/edit
+    defaults: { _controller: MmitvBackBundle:Planning:editDrag }
+
+mmitv_back_planning_delete:
+    path:     /back/planning/delete
+    defaults: { _controller: MmitvBackBundle:Planning:delete }
+
 mmitv_back_twitter_index:
     path:     /back/twitter/index
     defaults: { _controller: MmitvBackBundle:Twitter:index }
